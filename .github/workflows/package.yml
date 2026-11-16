@@ -51,7 +51,7 @@ jobs:
           version=$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')
           uv venv --python 3.13 "$RUNNER_TEMP/workspaces-installed"
           python_path="$RUNNER_TEMP/workspaces-installed/bin/python"
-          uv pip install --python "$python_path" "$RUNNER_TEMP/workspaces-dist/amplifier_workspaces-$version-py3-none-any.whl[test]"
+          uv pip install --python "$python_path" "$RUNNER_TEMP/workspaces-dist/amplifier_workspace_metadata-$version-py3-none-any.whl[test]"
           mkdir "$RUNNER_TEMP/workspaces-tests"
           git archive HEAD tests pyproject.toml | (cd "$RUNNER_TEMP/workspaces-tests" && tar -x)
           cd "$RUNNER_TEMP/workspaces-tests"
