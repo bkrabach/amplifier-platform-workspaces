@@ -1,0 +1,81 @@
+{
+  "audience": "Developers embedding the documented Python library",
+  "citations": [
+    {
+      "path": "README.md",
+      "ref": "b1631d04d272353477a80c94c3311e2d045de527",
+      "sha256": "d5fce6cf7484a6a3c370157576013a351df831908f85179869bfdff3fbd4585e",
+      "url": "https://github.com/bkrabach/amplifier-platform-workspaces/blob/b1631d04d272353477a80c94c3311e2d045de527/README.md"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "ref": "b1631d04d272353477a80c94c3311e2d045de527",
+      "sha256": "634ab8bd86795f470a297d0d45a277510550525648e825a72afb87fe796d51c3",
+      "url": "https://github.com/bkrabach/amplifier-platform-workspaces/blob/b1631d04d272353477a80c94c3311e2d045de527/PROVENANCE.json"
+    },
+    {
+      "path": "pyproject.toml",
+      "ref": "b1631d04d272353477a80c94c3311e2d045de527",
+      "sha256": "e75cff6822f663333dfb18309dad240ad5e54eec5d084b46cc11e96b2578c36c",
+      "url": "https://github.com/bkrabach/amplifier-platform-workspaces/blob/b1631d04d272353477a80c94c3311e2d045de527/pyproject.toml"
+    }
+  ],
+  "display_name": "Amplifier Platform Workspaces",
+  "edges": [
+    {
+      "from": "caller",
+      "relation": "uses",
+      "to": "self"
+    },
+    {
+      "from": "self",
+      "relation": "contains",
+      "to": "part-0"
+    },
+    {
+      "from": "self",
+      "relation": "contains",
+      "to": "part-1"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "self",
+      "kind": "self",
+      "label": "Amplifier Platform Workspaces",
+      "repository": "bkrabach/amplifier-platform-workspaces"
+    },
+    {
+      "id": "caller",
+      "kind": "external",
+      "label": "Calling application (Python API)"
+    },
+    {
+      "id": "part-0",
+      "kind": "internal",
+      "label": "Registration and listing"
+    },
+    {
+      "id": "part-1",
+      "kind": "internal",
+      "label": "Local-location interpretation"
+    }
+  ],
+  "notes": [
+    "This is an independent open-source package hosted by bkrabach, not a Microsoft component in the Constellation family index.",
+    "The public source import preserves its Unified provenance. Source ownership, publication and consumer artifact selection are separate reviewed steps; this listing does not change an existing selection.",
+    "The package does not read folders, allocate identities or authorize access. Registration metadata is separate from the existing workspace CLI, portable workspace identity and shared context."
+  ],
+  "page_kind": "supporting library",
+  "purpose": "Edit and reconcile workspace registration metadata. An independent Python library.",
+  "ref": "b1631d04d272353477a80c94c3311e2d045de527",
+  "repository": "bkrabach/amplifier-platform-workspaces",
+  "roles": [],
+  "start_cta": {
+    "label": "Read the library guide",
+    "url": "https://github.com/bkrabach/amplifier-platform-workspaces/blob/b1631d04d272353477a80c94c3311e2d045de527/README.md#develop-and-qualify"
+  },
+  "summary": "Registration and local-location helpers operate on caller-owned records. The caller validates folders and owns persistence, identity, access and selection.",
+  "supports_roles": [],
+  "visibility": "public"
+}
