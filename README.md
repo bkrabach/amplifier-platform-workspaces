@@ -118,11 +118,12 @@ not republish or overwrite those bytes. Unified continues to verify its generate
 selection offline for wheel, source-archive and editable builds; no sibling
 checkout or this repository is required by that packaged selection.
 
-The **Workspace metadata package** workflow builds one wheel and source archive,
-then runs the existing tests against that installed wheel outside this checkout
-on Linux/Python 3.13. It uploads qualification artifacts only. Native Windows,
-macOS and host integration acceptance remain separate; source publication is not
-proof of installed substitution or a live deployment.
+The **Workspace metadata package** workflow builds one wheel and source archive
+from an exact commit, verifies their package inputs and installed metadata, then
+runs the existing tests against that wheel outside this checkout on Linux and
+Windows/Python 3.13. Pull requests and ordinary pushes qualify and retain those
+artifacts; they do not publish. Host integration and macOS acceptance remain
+separate; package checks do not establish installed substitution or live adoption.
 
 The imported version remains 0.2.0. Before a new publication, coordinate
 its version and exact source/artifact receipt with consumers. Unified's later
@@ -130,6 +131,42 @@ selection is an explicit reviewed change with a sole installed owner and ordinar
 rollback. Newer records, uncertain effects and caller-owned state retain their
 authority; neither source handoff nor rollback permits replay. A later repository
 transfer should preserve history and releases.
+
+## Publish an exact standalone artifact
+
+After review and merge, manually run **Workspace metadata package** on `main`
+with the full merged `revision` and `publish: true`. Coordinate one publisher
+with consumers first. The workflow builds once and publishes those same verified
+bytes only after both installed checks pass. It does not change Unified's
+selection or an application's latest release.
+
+The four release assets are the wheel, source archive,
+`workspace-metadata-source.json`, and `SHA256SUMS`. The schema-1 receipt explicitly
+names `component: workspace-metadata`, this repository, `subdirectory: .`, the
+full commit and root tree, and hashes every packaged input. Repository automation
+and generated maps are bound by the commit/tree; they are not installed package
+code. The source archive includes the runtime, original standalone tests,
+metadata, license and governance/provenance files needed for an independent build.
+
+`scripts/release.py` owns publication for this repository. Its draft recovery and
+immutable asset checks adapt the accepted Scheduling producer; historical
+Unified releases remain immutable. Consumer selection and rollback stay with
+their existing owners, without a second runtime or coinstallation policy.
+
+For a failed or cancelled publication, inspect the recorded tag, exact release
+ID and original workflow artifacts before explicitly rerunning failed jobs.
+Reuse the original artifacts: rebuilding can change archive bytes. A separate
+invocation reconciles an existing draft and uploads only missing matching assets;
+an exact completed release is read-only. Changed source, tag identity or bytes,
+ambiguous release listings and uncertain replies are never overwritten or
+automatically retried. A tag lookup that hides a draft does not authorize creating
+a duplicate release.
+
+Publication controls can be checked separately with:
+
+```sh
+uv run --no-project --with pytest python -m pytest -q tests_release
+```
 
 ## Contributing
 
