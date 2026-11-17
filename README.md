@@ -111,10 +111,12 @@ reviewed authoring handoff, do not maintain competing authored copies.
 
 ## Existing artifacts and qualification
 
-Unified selects the original published 0.2.0 artifact from
-[its immutable workspace-metadata-v0.2.0 release](https://github.com/microsoft/amplifier-unified/releases/tag/workspace-metadata-v0.2.0).
-Its source receipt retains the original producer identity. This repository does
-not republish or overwrite those bytes. Unified continues to verify its generated
+Historical Unified releases selected the original 0.2.0 artifact from
+[the immutable Unified workspace-metadata-v0.2.0 release](https://github.com/microsoft/amplifier-unified/releases/tag/workspace-metadata-v0.2.0).
+Those receipts retain their original producer identity; this repository does not
+republish or overwrite those bytes. Unified's current selection is recorded in
+[`components/workspace-metadata.source.json`](https://github.com/microsoft/amplifier-unified/blob/main/components/workspace-metadata.source.json).
+A standalone publication does not change it. Unified verifies its generated
 selection offline for wheel, source-archive and editable builds; no sibling
 checkout or this repository is required by that packaged selection.
 
